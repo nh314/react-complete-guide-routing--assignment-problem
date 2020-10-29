@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -20,8 +20,10 @@ class App extends Component {
             <li>Redirect requests to /all-courses to /courses (=> Your "Courses" page)</li>
           </ol>
           <nav>
-            <Link to="/users">Users</Link><span> </span>
-            <Link to="/courses">Course</Link>
+            <ul>
+              <li><NavLink to="/users">Users</NavLink></li>
+              <li><NavLink to="/courses">Course</NavLink></li>
+            </ul>
           </nav>
           <Switch>
             <Route path="/users" component={Users} />
