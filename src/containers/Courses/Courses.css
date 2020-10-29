@@ -13,3 +13,11 @@
     margin: 10px;
     cursor: pointer;
 }
+.Courses a {
+    text-decoration: none;
+    color: #333;
+}
+.Courses a:hover,
+.Courses a:active {
+    color: #000;
+}
