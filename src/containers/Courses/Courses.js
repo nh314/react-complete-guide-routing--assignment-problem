@@ -13,9 +13,12 @@ class Courses extends Component {
         ]
     }
 
-    // articleSelectedHandler = (course_id) => {
-    //     this.props.history.push('/courses/' + course_id);
-    // }
+    articleSelectedHandler = (course_id, course_title) => {
+        this.props.history.push({
+            pathname:'/courses/' + course_id,
+            search: `title=${course_title}`
+        });
+    }
 
     render () {
         return (
@@ -25,14 +28,14 @@ class Courses extends Component {
                     {
                         this.state.courses.map( course => {
                             return (
-                            <Link to={"/courses/" + course.id } key={course.id}>
-                                <article /*onClick={() => this.articleSelectedHandler(course.id)}*/ className="Course">{course.title}</article>
-                            </Link>
+                            // <Link to={"/courses/" + course.id } key={course.id}>
+                                <article onClick={() => this.articleSelectedHandler(course.id, course.title)} className="Course" key={course.id}>{course.title}</article>
+                            // </Link>
                             );
                         } )
                     }
                 </section>
-                    <Route path="/courses/1" component={Course} />
+                    <Route path="/courses/:id" component={Course} />
             </div>
         );
     }
