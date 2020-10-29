@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, NavLink, Redirect } from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -28,6 +28,8 @@ class App extends Component {
           <Switch>
             <Route path="/users" component={Users} />
             <Route path="/courses" component={Courses} />
+            <Redirect from="/all-courses" to="/courses" />
+            <Route render={() => <h1>404 Not found!</h1>}/>
           </Switch>
         </div>
 
